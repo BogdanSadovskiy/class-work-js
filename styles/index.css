@@ -51,3 +51,9 @@ input {
 .radioTaskSix{
   display: flex;
 }
+.block{
+  background-color: rgb(85, 77, 187);
+  margin-bottom: 10px;
+  border-radius: 8px;
+  padding: 5px 3px;
+}

@@ -111,22 +111,22 @@
 
       <div class="six Task">
         <div class="answer">
-          <h3>Convert USD</h3>
+          <h3>Convert USD to:</h3>
         </div>
         <div class="radioContainer">
-            <div class="radioTaskSix">
-              <input
-                type="radio"
-                id="UAH"
-                name="currency"
-                value="37.79"
-                checked
-              />UAH
-            </div>
-            <div class="radioTaskSix">
-              <input type="radio" id="EUR" name="currency" value="0.92" /> EUR
-            </div>
+          <div class="radioTaskSix">
+            <input
+              type="radio"
+              id="UAH"
+              name="currency"
+              value="37.79"
+              checked
+            />UAH
           </div>
+          <div class="radioTaskSix">
+            <input type="radio" id="EUR" name="currency" value="0.92" /> EUR
+          </div>
+        </div>
         <div class="answerInput">
           <form action="#" method="post" onsubmit="return taskSix()">
             <label for="Input answer"></label>
@@ -140,8 +140,68 @@
             <br />
           </form>
         </div>
-        
+
         <div class="result"><div id="sixAnswerOutput"></div></div>
+      </div>
+
+      <div class="seven Task">
+        <div class="answer">
+          <h3>Input sum for sale</h3>
+        </div>
+        <div class="answerInput">
+          <form action="#" method="post" onsubmit="return taskSeven()">
+            <label for="Input answer"></label>
+            <input
+              type="number"
+              id="sevenTaskAnswer"
+              name="name"
+              placeholder="Sum"
+              required
+            />
+            <br />
+          </form>
+        </div>
+        <div class="result"><div id="sevenAnswerOutput"></div></div>
+      </div>
+
+      <div class="eight Task">
+        <div class= "block">
+        <div class="answer">
+          <h3>Input circle length</h3>
+        </div>
+        <div class="answerInput">
+          <label for="Input answer"></label>
+          <input
+            type="text"
+            id="eightTaskAnswerCircle"
+            name="name"
+            placeholder="Circle length"
+            oninput="taskEight()"
+            required
+          />
+          <br />
+        </div>
+        <div class="result"><div id="radius"></div></div>
+      </div>
+      <div class="block">
+        <div class="answer">
+          <h3>Input square perimetre</h3>
+        </div>
+        <div class="answerInput">
+          <label for="Input answer"></label>
+          <input
+            type="text"
+            id="eightTaskAnswerSquare"
+            name="name"
+            placeholder="Square perimeter"
+            oninput="taskEight()"
+            required
+          />
+          <br />
+        </div>
+        <div class="result"><div id="side"></div></div>
+      </div>
+        <div class="result"><div id="eightAnswerOutput"></div></div>
       </div>
     </div>
     <script src="./scripts/index.js"></script>

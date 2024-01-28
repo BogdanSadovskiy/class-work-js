@@ -140,11 +140,70 @@ function taskFive() {
 }
 
 function taskSix() {
-  const selectedRadio = document.querySelector('input[name="currency"]:checked');
-  let  rate = parseFloat(selectedRadio.value);
+  const selectedRadio = document.querySelector(
+    'input[name="currency"]:checked'
+  );
+  let rate = parseFloat(selectedRadio.value);
 
-  let currentValue = parseFloat(document.getElementById("sixTaskAnswer").value); 
-  currentValue*= rate;
-  document.getElementById("sixAnswerOutput").innerHTML = currentValue.toFixed(2);
+  let currentValue = parseFloat(document.getElementById("sixTaskAnswer").value);
+  currentValue *= rate;
+  document.getElementById("sixAnswerOutput").innerHTML =
+    currentValue.toFixed(2);
   return false;
+}
+
+function taskSeven() {
+  let task = document.getElementById("sevenTaskAnswer").value;
+  if (isNaN(task)) {
+    return false;
+  }
+  let discount;
+  let sum = parseFloat(task);
+  if (sum > 200 && sum <= 300) discount = 0.03;
+  else if (sum > 300 && sum <= 500) discount = 0.05;
+  else if (sum > 500) discount = 0.07;
+  else {
+    discount = 0;
+  }
+  let saleSum = sum - sum * discount;
+  let answer = saleSum.toFixed(2).toString() + " $";
+  document.getElementById("sevenAnswerOutput").innerHTML = answer;
+  return false;
+}
+
+function getCircleRadius(circleLength) {
+  if (isNaN(circleLength)) return false;
+  let radius = parseFloat(circleLength) / (2 * Math.PI);
+  let answer = "Circle radius = " + radius.toFixed(3).toString();
+  document.getElementById("radius").innerHTML = answer;
+  return radius;
+}
+function getSquareSide(squarePerimetre){
+  if(isNaN(squarePerimetre))return false;
+  let side = parseFloat(squarePerimetre) / 4;
+  let answer = "Square side = " + side.toFixed(3).toString();
+  document.getElementById("side").innerHTML = answer;
+  return side;
+}
+function isCircleInsideSquare(circleRadius, squareSide) {
+  if (isNaN(circleRadius) || isNaN(squareSide)) return -1;
+  return circleRadius <= squareSide/2;
+}
+
+function taskEight() {
+  let circleLength = document.getElementById("eightTaskAnswerCircle").value;
+  let squarePerimeter = document.getElementById("eightTaskAnswerSquare").value;
+  if (!isNaN(circleLength) && !isNaN(squarePerimeter)) {
+    isCircleInsideSquare(getCircleRadius(circleLength), getSquareSide(squarePerimeter))
+      ? (document.getElementById("eightAnswerOutput").innerHTML =
+          "Circle is in square")
+      : (document.getElementById("eightAnswerOutput").innerHTML =
+          "Circle is not in square");
+  }
+  document
+    .getElementById("eightTaskAnswerCircle")
+    .addEventListener("input", taskEight);
+  document
+    .getElementById("eightTaskAnswerSquare")
+    .addEventListener("input", taskEight);
 }
